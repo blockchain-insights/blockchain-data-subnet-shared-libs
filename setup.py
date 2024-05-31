@@ -7,7 +7,6 @@ setup(
     install_requires=[
         # List your package dependencies here
         'pydantic',
-        'bittensor',
     ],
     author='Dmytro Savenkov',
     author_email='dmytro.savenkov@chain-insights.ai',
