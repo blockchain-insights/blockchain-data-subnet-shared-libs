@@ -1,6 +1,6 @@
 from uuid import UUID
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from enum import Enum
 from protocols.llm_engine import QueryOutput
 
@@ -20,7 +20,7 @@ class ChatMessageVariantRequest(BaseModel):
 
 
 class ChatMessageResponse(BaseModel):
-    miner_id: str = ""
+    miner_id: Optional[int] = None
     response: List[QueryOutput]
 
 
