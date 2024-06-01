@@ -63,6 +63,7 @@ class QueryOutput(BaseModel):
     result: Optional[List[Dict]] = None
     interpreted_result: Optional[str] = None
     error: Optional[ERROR_TYPE] = None
+    miner_id: Optional[int] = None
 
 
 class LlmQuery(BaseModel):
