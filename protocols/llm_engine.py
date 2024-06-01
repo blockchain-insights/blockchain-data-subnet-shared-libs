@@ -47,7 +47,8 @@ LLM_ERROR_MESSAGES = {
     LLM_ERROR_EXECUTION_FAILED: "Unexpected error occurs during database interaction.",
     LLM_ERROR_QUERY_BUILD_FAILED: "Unexpected error occurs while inferencing AI models.",
     LLM_ERROR_GENERAL_RESPONSE_FAILED: "Unexpected error occurs while answering general questions.",
-    LLM_ERROR_NOT_APPLICAPLE_QUESTIONS: "Your question is not applicable to our subnet. We only answer questions related blockchain or cryptocurrency."
+    LLM_ERROR_NOT_APPLICAPLE_QUESTIONS: "Your question is not applicable to our subnet. We only answer questions related blockchain or cryptocurrency.",
+    LLM_CLIENT_ERROR: "LLM client error"
 }
 
 
