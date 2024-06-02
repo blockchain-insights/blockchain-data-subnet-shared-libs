@@ -16,11 +16,11 @@ class ChatMessageVariantRequest(BaseModel):
     user_id: UUID
     prompt: str
     temperature: float
-    miner_id: int
+    miner_hotkey: str
 
 
 class ChatMessageResponse(BaseModel):
-    miner_id: Optional[int] = None
+    miner_hotkey: Optional[str] = None
     response: List[QueryOutput]
 
 
