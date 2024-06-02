@@ -1,5 +1,7 @@
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Literal
 from pydantic import BaseModel, Field
+
+from protocols.blockchain import NETWORK_BITCOIN
 
 # Query Types
 QUERY_TYPE_SEARCH = "search"
@@ -59,14 +61,14 @@ class LlmMessage(BaseModel):
 
 
 class QueryOutput(BaseModel):
-    type: str = "graph"
+    type: Literal["graph", "text", "table"] = Field(..., title="The type of the output")
     result: Optional[List[Dict]] = None
     interpreted_result: Optional[str] = None
     error: Optional[ERROR_TYPE] = None
 
 
 class LlmQuery(BaseModel):
-    network: str = None
+    network: str = Field(NETWORK_BITCOIN, title="The network to query")
     messages: List[LlmMessage] = None
     output: Optional[QueryOutput] = None
 
