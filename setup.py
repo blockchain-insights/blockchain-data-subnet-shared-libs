@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='blockchain-data-subnet-shared-libs',
-    version='0.0.12',
+    version='0.0.17',
     packages=find_packages(),
     install_requires=[
         # List your package dependencies here

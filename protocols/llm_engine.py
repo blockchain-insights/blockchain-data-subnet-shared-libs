@@ -1,4 +1,4 @@
-from typing import List, Optional, Dict, Literal
+from typing import List, Optional, Dict, Literal, Any
 from pydantic import BaseModel, Field
 
 from protocols.blockchain import NETWORK_BITCOIN
@@ -37,6 +37,7 @@ LLM_ERROR_QUERY_BUILD_FAILED = 7
 LLM_ERROR_GENERAL_RESPONSE_FAILED = 8
 LLM_ERROR_NOT_APPLICAPLE_QUESTIONS = 9
 LLM_CLIENT_ERROR = 10
+LLM_UNKNOWN_ERROR = 999
 
 
 # LLM Error Messages
@@ -51,7 +52,8 @@ LLM_ERROR_MESSAGES = {
     LLM_ERROR_QUERY_BUILD_FAILED: "Unexpected error occurs while inferencing AI models.",
     LLM_ERROR_GENERAL_RESPONSE_FAILED: "Unexpected error occurs while answering general questions.",
     LLM_ERROR_NOT_APPLICAPLE_QUESTIONS: "Your question is not applicable to our subnet. We only answer questions related blockchain or cryptocurrency.",
-    LLM_CLIENT_ERROR: "LLM client error"
+    LLM_CLIENT_ERROR: "LLM client error",
+    LLM_UNKNOWN_ERROR: "LLM unknown error"
 }
 
 
@@ -61,8 +63,8 @@ class LlmMessage(BaseModel):
 
 
 class QueryOutput(BaseModel):
-    type: Literal["graph", "text", "table"] = Field(..., title="The type of the output")
-    result: Optional[List[Dict]] = None
+    type: Literal["graph", "text", "table", "error"] = Field(..., title="The type of the output")
+    result: Optional[List[Any]] = None
     interpreted_result: Optional[str] = None
     error: Optional[ERROR_TYPE] = None
 
